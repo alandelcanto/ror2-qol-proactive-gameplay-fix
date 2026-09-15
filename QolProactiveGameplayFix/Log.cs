@@ -1,6 +1,6 @@
 ﻿using BepInEx.Logging;
 
-namespace ExamplePlugin
+namespace QolProactiveGameplayFix
 {
     internal static class Log
     {
