@@ -20,7 +20,7 @@ namespace QolProactiveGameplayFix
             return Run.instance.availableBossDropList[Run.instance.treasureRng.RangeInt(0, Run.instance.availableBossDropList.Count)];
         }
 
-        public static void DebugSpawnBoss(string masterPrefabName, Vector3 position)
+        public static void DebugSpawnBoss(Vector3 position, string masterPrefabName = "MagmaWormMaster", TeamIndex team = TeamIndex.Monster)
         {
             if (!NetworkServer.active)
             {
@@ -30,7 +30,7 @@ namespace QolProactiveGameplayFix
             GameObject masterPrefab = MasterCatalog.FindMasterPrefab(masterPrefabName);
             if (masterPrefab == null)
             {
-                Debug.LogError($"master prefab not found: {masterPrefabName}");
+                Log.Error($"master prefab not found: {masterPrefabName}");
                 return;
             }
 
@@ -41,7 +41,7 @@ namespace QolProactiveGameplayFix
                 rotation = Quaternion.identity,
                 summonerBodyObject = null,
                 ignoreTeamMemberLimit = true,
-                teamIndexOverride = TeamIndex.Monster
+                teamIndexOverride = team
             }.Perform();
         }
     }

@@ -17,7 +17,7 @@ namespace QolProactiveGameplayFix
 
         public static void Init()
         {
-            Log.Debug($"{QolProactiveGameplayFix.PluginName}: Adding fix for:");
+            Log.Debug($"{QolProactiveGameplayFix.PluginName}: Adding fix for: {equipmentDef.name}");
 
             // Hooks
             On.RoR2.EquipmentSlot.PerformEquipmentAction += EquipmentSlot_PerformEquipmentAction;
